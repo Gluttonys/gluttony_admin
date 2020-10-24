@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
+import '@/plugins/element-ui'
+
+Vue.prototype.$lodash = require('lodash')
 
 new Vue({
   router,

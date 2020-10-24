@@ -1,0 +1,15 @@
+.el-container {
+  min-height: 100vh;
+
+  .el-aside {
+    background-color: $theme-color;
+    .el-menu {
+      background-color: $theme-color;
+    }
+
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+
+}
