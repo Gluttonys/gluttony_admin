@@ -1,0 +1,60 @@
+.header {
+  height: 100%;
+  color:  $base-color-gray;
+
+  .tools {
+    line-height: 50px;
+
+    .left {
+      height: 50px;
+      text-align: left;
+      position: relative;
+
+      .el-icon-s-fold {
+        font-size:   $font-size-huge * 1.5;
+        cursor:      pointer;
+        @include toCenter;
+      }
+    }
+
+    .center {
+      height: 50px;
+      .el-breadcrumb {
+        height: 100%;
+        line-height: 50px;
+      }
+    }
+
+    .right {
+      height:           50px;
+
+      .el-input {
+        width: 90%;
+      }
+
+      .el-col {
+        cursor: pointer;
+        text-align: center;
+
+        .avatar {
+          height: 40px;
+          width: 40px;
+          border-radius: 10px;
+          transform: translateY(5px);
+        }
+      }
+    }
+  }
+
+  .nav {
+    background-color: $base-color-white;
+    height:           30px;
+    box-shadow: $base-box-shadow;
+
+    .el-tag {
+      margin-right: .5em;
+      transform: translateY(3px);
+    }
+  }
+
+}

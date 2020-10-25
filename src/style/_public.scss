@@ -1,0 +1,17 @@
+.bg_shadow {
+  @include bgDarker($base-color-white, 5%);
+}
+
+.stress {
+  /* 着重文字 */
+  font-weight: $--button-font-weight-6;
+  font-size: $font-size-big;
+  line-height: 2em;
+}
+
+.light {
+  font-weight: $--button-font-weight-4;
+  font-size: $font-size-normal;
+  color: $base-font-color;
+  line-height: 1.3em;
+}

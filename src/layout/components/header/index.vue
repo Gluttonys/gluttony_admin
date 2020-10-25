@@ -1,0 +1,102 @@
+<template>
+  <div class="header">
+    <el-row class="tools">
+      <el-col :span="1" class="left bg_shadow">
+        <i class="el-icon-s-fold"></i>
+      </el-col>
+      <el-col :span="9" class="center">
+        <el-breadcrumb separator="/">
+          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/' }">活动管理</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/' }">活动列表</el-breadcrumb-item>
+          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        </el-breadcrumb>
+      </el-col>
+      <el-col :span="14" class="right">
+        <el-row justify="space-around">
+          <el-col :span="18">
+            <el-input
+                placeholder="请输入内容"
+                suffix-icon="el-icon-search"
+                v-model="keyword">
+            </el-input>
+          </el-col>
+          <el-col :span="2" class="bg_shadow">
+            <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+          </el-col>
+          <el-col :span="2" class="bg_shadow">
+            <i class="fa fa-text-height" aria-hidden="true"></i>
+          </el-col>
+          <el-col :span="2" class="bg_shadow">
+            <el-dropdown @command="handleCommand">
+              <el-image class="avatar" fit="cover" :src="avatar_path">
+              </el-image>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="profile">个人中心</el-dropdown-item>
+                <el-dropdown-item command="github">github</el-dropdown-item>
+                <el-dropdown-item command="gitee">码云</el-dropdown-item>
+                <el-dropdown-item command="document">文档</el-dropdown-item>
+                <el-dropdown-item command="logout">退出</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-col>
+        </el-row>
+      </el-col>
+    </el-row>
+
+    <el-row class="nav">
+      <el-col :span="24">
+        <el-tag
+            v-for="(tag, index) in 10"
+            :key="index"
+            size="small"
+            effect="plain"
+            type="info"
+            @close="handleDelTag"
+            closable>
+          {{tag }}
+        </el-tag>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+
+import {HEADER_OPTION} from '@/config/settings'
+import {avatar_path} from '../../../../mockData/const'
+
+export default {
+  name: 'index',
+  data() {
+    return {
+      avatar_path,
+      keyword: '',
+    }
+  },
+  methods: {
+    handleDelTag() {
+      console.log("标签被删除啦！！")
+    },
+    handleCommand(command) {
+      switch (command) {
+        case HEADER_OPTION.profile:
+          this.$router.push({name: HEADER_OPTION.profile})
+          break
+        case HEADER_OPTION.github:
+          break
+        case HEADER_OPTION.gitee:
+          break
+        case HEADER_OPTION.document:
+          break
+        case HEADER_OPTION.logout:
+          break
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@import "index";
+</style>

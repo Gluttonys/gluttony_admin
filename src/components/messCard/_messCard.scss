@@ -1,0 +1,51 @@
+.mess_card {
+  padding:       10px 0 15px;
+  border-bottom: $--table-border;
+
+  .card_header {
+    display:               grid;
+    grid-template-columns: 60px 1fr;
+    align-items:           center;
+    margin-bottom:         10px;
+
+    .avatar {
+
+      .el-image {
+        height:        40px;
+        width:         40px;
+        border-radius: 50%;
+      }
+    }
+
+    .info {
+      .name {
+        font-weight: $--button-font-weight-6;
+      }
+
+      .time {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  .content {
+    font-size: $font-size-normal;
+    color:     $base-color-gray;
+  }
+
+  .operation {
+    margin-top: 20px;
+    display:    flex;
+
+    .oper_item {
+      cursor:     pointer;
+      width:      80px;
+      color:      lighten($base-color-gray, 15%);
+      transition: $base-transition;
+
+      &:hover {
+        color: $pink;
+      }
+    }
+  }
+}

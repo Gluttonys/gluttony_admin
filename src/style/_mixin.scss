@@ -1,0 +1,59 @@
+@mixin clearfix() {
+  /* 清除浮动 */
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+@mixin lighter($color, $level) {
+  /*
+  鼠标悬浮， 颜色变淡
+  $color : 文字原本的颜色
+  $level : 变量多少， 填一个百分比
+  */
+  transition: $base-transition;
+
+  &:hover {
+    color: lighten($color, $level);
+  }
+}
+
+@mixin bgDarker($bgcolor, $level) {
+  /*
+  鼠标悬浮， 背景颜色变深
+  $bgcolor ： 原本背景颜色
+  $level ： 变暗多少， 填一个百分比
+  */
+  transition: $base-transition;
+
+  &:hover {
+    background-color: darken($bgcolor, $level);
+  }
+}
+
+@mixin toCenter() {
+  position:  absolute;
+  top:       50%;
+  left:      50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin hover-rotate(){
+  position: relative;
+
+  &:hover .el-image{
+    transform: rotate(-135deg);
+  }
+
+  .el-image {
+    transform-origin: 90% center;
+    transition: .4s;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+}

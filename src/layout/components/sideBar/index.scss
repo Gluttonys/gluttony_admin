@@ -1,0 +1,42 @@
+/* 重定义侧边栏样式 */
+.el-aside {
+  background-color: darken($light-blue, 15%);
+}
+
+.el-menu {
+  background-color: darken($light-blue, 15%);
+  color: $subMenuActiveText;
+
+  /deep/ .el-menu-item {
+    color: $menuText;
+
+    &:hover, &:focus {
+      background-color: darken($light-blue, 5%);
+      color: $subMenuActiveText;
+    }
+  }
+
+}
+
+///deep/ .el-submenu__title {
+//  color: $subMenuActiveText;
+//
+//  &:hover, &:focus {
+//    background-color: darken($light-blue, 5%);
+//  }
+//}
+//
+///deep/  .el-menu--inline {
+//  background-color: $light-blue;
+//
+//  .el-menu-item {
+//    color: $menuText;
+//
+//    &:hover, &:focus {
+//      background-color: darken($light-blue, 5%);
+//      color: $subMenuActiveText;
+//    }
+//  }
+//
+//}
+

@@ -1,0 +1,42 @@
+.user_card {
+  width: 100%;
+  min-height: 400px;
+  background-color: $base-color-white;
+  //box-shadow: $base-box-shadow-plane;
+  border-radius: 5px;
+  border: $--table-border;
+
+  .header {
+    padding: 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid $--border-color-light;
+    font-size: $base-font-size-big;
+  }
+
+  .info_area {
+    margin-top: 20px;
+    text-align: center;
+
+    .avatar {
+      padding-top: 20px;
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      background-color: $base-border-color;
+      box-sizing: border-box;
+      left: 50%;
+      transform: translateX(-50%);
+      @include hover-rotate();
+
+      .el-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .section {
+    padding: 10px;
+  }
+}
