@@ -5,8 +5,10 @@ import store from './store'
 
 Vue.config.productionTip = false
 import '@/plugins/element-ui'
+import '@/plugins/particles'
 
-import '@/style/main.scss'  // global css
+import '@/style/main.scss'  // 全局 css
+import 'animate.css'        // 动画库 https://animate.style/
 import '@/assets/fontawesome/css/font-awesome.min.css'
 
 Vue.prototype.$lodash = require('lodash')

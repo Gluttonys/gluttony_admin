@@ -1,5 +1,4 @@
 .dashboard {
-  padding: 10px;
 
   .charts {
     height: 300px;
@@ -16,10 +15,24 @@
   }
 
   .charts_area {
-    margin-top: 15px;
+    margin-top: 25px;
     background-color: darken($base-menu-color, 5%);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 25px;
+  }
+
+
+  .sundry {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-column-gap: 25px;
+    margin-top: 25px;
+
+    .employee {}
+
+    .todo_list {}
+
+    .post_card {}
   }
 }

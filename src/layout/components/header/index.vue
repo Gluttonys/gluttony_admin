@@ -22,7 +22,7 @@
             </el-input>
           </el-col>
           <el-col :span="2" class="bg_shadow">
-            <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+            <i class="fa fa-arrows-alt" aria-hidden="true" @click="toggleScreenFull"></i>
           </el-col>
           <el-col :span="2" class="bg_shadow">
             <i class="fa fa-text-height" aria-hidden="true"></i>
@@ -66,6 +66,8 @@
 import {HEADER_OPTION} from '@/config/settings'
 import {avatar_path} from '../../../../mockData/const'
 
+import screenfull from 'screenfull'  /* 网页最大化插件 */
+
 export default {
   name: 'index',
   data() {
@@ -92,6 +94,9 @@ export default {
         case HEADER_OPTION.logout:
           break
       }
+    },
+    toggleScreenFull(){
+      screenfull.toggle();
     }
   }
 }

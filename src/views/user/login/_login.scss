@@ -1,0 +1,55 @@
+.login {
+  height:           100%;
+  background-color: $subMenuBg;
+  background-image: url("~@/assets/publicImage/background/tree.jpg");
+  background-size:  100% auto;
+  position:         relative;
+
+  #particles-js {
+    height: 100vh;
+  }
+
+  .content {
+    position:         absolute;
+    top:              50%;
+    left:             50%;
+    transform:        translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .5);
+    width:            600px;
+    height:           400px;
+    color:            $base-color-white;
+    border-radius:    15px;
+    //padding: 15px;
+    box-sizing:       border-box;
+
+    .header {
+      border-top-left-radius:  15px;
+      border-top-right-radius: 15px;
+      height:                  100px;
+      background-color:        rgba(0, 0, 0, .3);
+      position:                relative;
+
+      .el-avatar {
+        height:     130px;
+        width:      130px;
+        position:   absolute;
+        top:        35px;
+        left:       50%;
+        transform:  translateX(-50%);
+        cursor:     pointer;
+        border:     10px solid rgba(0, 0, 0, .6);
+        transition: .5s;
+
+        &:hover {
+          transform: translateX(-50%) rotate(-1turn);
+        }
+      }
+    }
+
+    .el-form {
+      width: 70%;
+      margin: 100px auto 0;
+      text-align: center;
+    }
+  }
+}

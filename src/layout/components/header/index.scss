@@ -33,8 +33,11 @@
       }
 
       .el-col {
-        cursor: pointer;
         text-align: center;
+
+        .fa {
+          cursor: pointer;
+        }
 
         .avatar {
           height: 40px;

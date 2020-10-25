@@ -7,7 +7,7 @@
       <el-menu-item index="2">
         <i class="fa fa-clipboard"></i> 文档
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="3" @click="$router.push({name: 'guide'})">
         <i class="fa fa-american-sign-language-interpreting"></i> 引导
       </el-menu-item>
       <el-menu-item index="4">
