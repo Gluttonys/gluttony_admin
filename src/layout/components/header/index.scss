@@ -49,11 +49,20 @@
   .nav {
     background-color: $base-color-white;
     height:           30px;
-    box-shadow: $base-box-shadow;
+    box-shadow: 0 5px 10px 0 lighten($base-color-black, 60%);
+    z-index: 999;
+    padding-left: 10px;
 
-    .el-tag {
-      margin-right: .5em;
-      transform: translateY(3px);
+
+    .el-col {
+      //overflow-x: scroll;
+      //overflow-y: hidden;
+      //white-space: nowrap;
+
+      .el-tag {
+        margin-right: .5em;
+        transform: translateY(3px);
+      }
     }
   }
 

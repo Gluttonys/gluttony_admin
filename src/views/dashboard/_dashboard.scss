@@ -1,0 +1,25 @@
+.dashboard {
+  padding: 10px;
+
+  .charts {
+    height: 300px;
+    margin: 10px;
+  }
+
+  .bg_white {
+    text-align: center;
+
+    .el-button {
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+  }
+
+  .charts_area {
+    margin-top: 15px;
+    background-color: darken($base-menu-color, 5%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 25px;
+  }
+}

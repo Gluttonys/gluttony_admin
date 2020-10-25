@@ -2,6 +2,11 @@
   @include bgDarker($base-color-white, 5%);
 }
 
+.bg_white {
+  background-color: $base-color-white;
+  border-radius: 5px;
+}
+
 .stress {
   /* 着重文字 */
   font-weight: $--button-font-weight-6;
@@ -15,3 +20,4 @@
   color: $base-font-color;
   line-height: 1.3em;
 }
+

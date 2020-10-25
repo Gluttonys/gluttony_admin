@@ -15,7 +15,13 @@ const routes = [
         component:() => import('@/views/user/profile/profile'),
         name: 'profile',
         meta: {title: '个人中心'}
-      }
+      },
+      {
+        path: 'dashboard',
+        component:() => import('@/views/dashboard/dashboard'),
+        name: 'dashboard',
+        meta: {title: '仪表盘'}
+      },
     ]
   }
 ]

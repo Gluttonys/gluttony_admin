@@ -15,28 +15,16 @@
       color: $subMenuActiveText;
     }
   }
+}
+
+.el-menu-item {
+
+  i {
+    margin-right: 15px;
+  }
+
 
 }
 
-///deep/ .el-submenu__title {
-//  color: $subMenuActiveText;
-//
-//  &:hover, &:focus {
-//    background-color: darken($light-blue, 5%);
-//  }
-//}
-//
-///deep/  .el-menu--inline {
-//  background-color: $light-blue;
-//
-//  .el-menu-item {
-//    color: $menuText;
-//
-//    &:hover, &:focus {
-//      background-color: darken($light-blue, 5%);
-//      color: $subMenuActiveText;
-//    }
-//  }
-//
-//}
+
 

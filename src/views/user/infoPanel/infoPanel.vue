@@ -27,7 +27,18 @@
         </el-timeline>
       </el-tab-pane>
       <el-tab-pane label="账号" name="account">
-        账号信息
+        <el-form v-model="accountData" :rules="rules" ref="accountForm" label-width="50px">
+          <el-form-item label="姓名" prop="name">
+            <el-input clearable v-model="accountData.name"></el-input>
+          </el-form-item>
+
+          <el-form-item label="邮箱" prop="email">
+            <el-input v-model="accountData.email"></el-input>
+          </el-form-item>
+
+          <el-button size="mini" type="primary" @click="submitForm('accountForm')">立即创建</el-button>
+        </el-form>
+
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -35,10 +46,22 @@
 
 <script>
 import messCard from '@/components/messCard/messCard'
+import {validateEmail} from '@/utils/validate'
 
 export default {
   name: 'infoPanel',
   data() {
+    let validateFormEmail = (rule, value, callback) => {  /* 自定义校验规则 */
+      if (value === '') {
+        callback(new Error('请输入邮箱'));
+      } else {
+        if (this.accountData.email !== '' && validateEmail(value)) {
+          this.$refs.ruleForm.validateField('checkPass');
+        }
+        callback();
+      }
+    };
+
     return {
       activeName: 'news',
       testData: {
@@ -57,7 +80,24 @@ export default {
             ' placeat porro possimus quaerat quia quos reprehenderit' +
             ' sapiente sit temporibus totam, ' +
             'ut vel vitae voluptate voluptates?'
+      },
+
+      accountData: {
+        name: '',
+        email: ''
+      },
+
+      rules: {  /* element 自带的校验规则 */
+        name: [
+          {required: true, message: '请输入用户名称', trigger: 'blur'},
+          {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
+        ],
+        email: [
+          {validator: validateFormEmail /* 自定义校验规则 */ , trigger: 'blur'},
+          {required: true, message: '请输入邮箱', trigger: 'blur'},
+        ]
       }
+
     }
   },
   components: {
@@ -65,7 +105,18 @@ export default {
   },
   methods: {
     handleTabChange(tab, event) {
-      console.log("tab栏切换", tab, event)
+      console.log('tab栏切换', tab, event)
+    },
+    submitForm(formName) {
+      /* element 表单验证成功回调 */
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('数据验证成功！');
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
     }
   }
 }
