@@ -47,14 +47,15 @@
     <el-row class="nav">
       <el-col :span="24">
         <el-tag
-            v-for="(tag, index) in 10"
+            v-for="(tag, index) in tagList"
             :key="index"
             size="small"
-            effect="plain"
-            type="info"
-            @close="handleDelTag"
-            closable>
-          {{tag }}
+            :type="tag[0] === currentTag ? 'success' : 'info'"
+            @close="handleDelTag(tag[0])"
+            @click="$router.replace({name: tag[1]})"
+            :closable="$store.getters.tagList.length !== 1"
+            >
+          {{tag[0] }}
         </el-tag>
       </el-col>
     </el-row>
@@ -66,7 +67,9 @@
 import {HEADER_OPTION} from '@/config/settings'
 import {avatar_path} from '../../../../mockData/const'
 
-import screenfull from 'screenfull'  /* 网页最大化插件 */
+import screenfull from 'screenfull'         /* 网页最大化插件 */
+import {removeToken} from '@/utils/auth'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'index',
@@ -76,9 +79,17 @@ export default {
       keyword: '',
     }
   },
+  created() {
+    console.log(this.tagList)
+  },
+
+  computed: {
+    ...mapGetters(['tagList', 'currentTag'])
+  },
+
   methods: {
-    handleDelTag() {
-      console.log("标签被删除啦！！")
+    handleDelTag(tag) {
+      this.$store.commit('global/toRemoveTag', tag)
     },
     handleCommand(command) {
       switch (command) {
@@ -92,10 +103,12 @@ export default {
         case HEADER_OPTION.document:
           break
         case HEADER_OPTION.logout:
+          removeToken()
+          this.$router.push({name: 'login'})
           break
       }
     },
-    toggleScreenFull(){
+    toggleScreenFull() {
       screenfull.toggle();
     }
   }

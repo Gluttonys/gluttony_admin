@@ -3,11 +3,35 @@
   background-color: darken($light-blue, 15%);
 }
 
+/deep/ .el-submenu {
+  .el-submenu__title {
+    color: $menuText;
+
+    &:focus, &:hover {
+      background-color: darken($light-blue, 5%);
+      color: $subMenuActiveText;
+    }
+  }
+
+  .el-menu.el-menu--inline {
+    .el-menu-item {
+      background-color: darken($light-blue, 25%)!important;
+
+      &:hover, &:focus {
+        background-color: darken($light-blue, 20%) !important;
+        color: $subMenuActiveText!important;
+      }
+    }
+  }
+
+}
+
 .el-menu {
   background-color: darken($light-blue, 15%);
   color: $subMenuActiveText;
 
   /deep/ .el-menu-item {
+    background-color: darken($light-blue, 15%);
     color: $menuText;
 
     &:hover, &:focus {
@@ -17,13 +41,12 @@
   }
 }
 
-.el-menu-item {
 
+
+.el-menu-item, .el-submenu {
   i {
     margin-right: 15px;
   }
-
-
 }
 
 

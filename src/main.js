@@ -6,6 +6,7 @@ import store from './store'
 Vue.config.productionTip = false
 import '@/plugins/element-ui'
 import '@/plugins/particles'
+import '@/plugins/gaode-map'
 
 import '@/style/main.scss'  // 全局 css
 import 'animate.css'        // 动画库 https://animate.style/

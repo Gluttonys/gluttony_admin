@@ -30,6 +30,8 @@ import {
   DropdownItem,
   Image,
   Input,
+  Dialog,
+  Upload,
   Tag,
   Button,
   Progress,
@@ -42,7 +44,9 @@ import {
 const components = [
   Progress,
   Tag,
+  Dialog,
   Tabs,
+  Upload,
   Button,
   Timeline,
   TimelineItem,
