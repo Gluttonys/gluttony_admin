@@ -26,9 +26,8 @@ export default {
     line-height:         2.5em;
     font-weight:         900;
     color:               #cbab61;
-    -webkit-box-reflect: below -100px /* 倒影 */
-    -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0.1))); /* 文字渐变色 */
-    user-select:         none;
+    @include no_operating();
+    @include inverted_image(-100px);
   }
 
   .tip {

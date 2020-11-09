@@ -51,7 +51,8 @@ import {
   Alert,
   Loading,
   Message,
-  MessageBox
+  MessageBox,
+  Transfer
 } from 'element-ui';
 
 const components = [
@@ -62,6 +63,7 @@ const components = [
   Option,
   TimePicker,
   Switch,
+  Transfer,
   DatePicker,
   Checkbox,
   CheckboxGroup,

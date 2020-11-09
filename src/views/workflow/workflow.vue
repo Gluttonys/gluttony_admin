@@ -12,9 +12,11 @@
       <el-button @click="stepsAdd">下一步</el-button>
     </el-tab-pane>
     <el-tab-pane class="css_status" label="OA 状态">
-      <OAStateusCard v-for="item in 30" :key="item" :data="statusCardData"></OAStateusCard>
+      <OAStateusCard v-for="item in 8" :key="item" :data="statusCardData"></OAStateusCard>
     </el-tab-pane>
-    <el-tab-pane label="待我审批">待我审批</el-tab-pane>
+    <el-tab-pane class="css_status" label="待我审批">
+      <OAStateusCard v-for="item in 8" :key="item" is-examine-and-approve :data="statusCardData"></OAStateusCard>
+    </el-tab-pane>
   </el-tabs>
 </template>
 

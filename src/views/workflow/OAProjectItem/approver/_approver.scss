@@ -1,0 +1,15 @@
+.approver {
+  margin-top: 40px;
+
+  &::v-deep .el-transfer-panel {
+    left:      50%;
+    transform: translateX(-140%);
+  }
+
+  &::v-deep .el-transfer__buttons {
+    left:      50%;
+    position:  relative;
+    transform: translateX(-115%);
+  }
+
+}

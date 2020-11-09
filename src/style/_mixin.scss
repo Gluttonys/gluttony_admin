@@ -3,7 +3,7 @@
   &::after {
     content: "";
     display: table;
-    clear: both;
+    clear:   both;
   }
 }
 
@@ -41,19 +41,19 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin hover-rotate(){
+@mixin hover-rotate() {
   position: relative;
 
-  &:hover .el-image{
+  &:hover .el-image {
     transform: rotate(-135deg);
   }
 
   .el-image {
     transform-origin: 90% center;
-    transition: .4s;
-    position: absolute;
-    top: 0;
-    left: 0;
+    transition:       .4s;
+    position:         absolute;
+    top:              0;
+    left:             0;
   }
 
 }
@@ -75,4 +75,10 @@
   overflow:           hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
+}
+
+
+@mixin inverted_image($distance) {
+  -webkit-box-reflect: below $distance /* 倒影 */
+  -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0.2))); /* 文字渐变色 */
 }

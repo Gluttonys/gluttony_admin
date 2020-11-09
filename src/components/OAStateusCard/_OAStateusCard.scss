@@ -80,4 +80,47 @@
     font-weight:               $--button-font-weight-6;
   }
 
+  .btn_wrapper {
+    margin-top:            30px;
+    display:               grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:              20px;
+    justify-content:       center;
+    align-items:           center;
+
+    .btn {
+      color:          $gold;
+      line-height:    2em;
+      font-weight:    $--button-font-weight-1;
+      font-size:      18px;
+      padding:        0 40px;
+      border:         2px solid $gold;
+      border-radius:  10px;
+      text-align:     center;
+      letter-spacing: 10px;
+      transition:     .3s;
+      //@include inverted_image(10px);
+    }
+
+    .agree {
+      &:hover {
+        color:            lighten($gold, 15%);
+        border-color:     lighten($gold, 15%);
+        background-color: lighten(#393b3a, 5%);
+        box-shadow: 0 0 5px 0 $gold;
+      }
+    }
+
+    .turnDown {
+      border: 2px solid darken($gold, 20%);
+      color:  darken($gold, 20%);
+
+      &:hover {
+        color:            lighten($gold, 15%);
+        border-color:     lighten($gold, 15%);
+        background-color: lighten(#393b3a, 5%);
+        box-shadow: 0 0 5px 0 darken($gold, 15%);
+      }
+    }
+  }
 }
