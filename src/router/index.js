@@ -25,6 +25,12 @@ const subChild = [
     meta: {title: '引导'}
   },
   {
+    path: '/document',
+    name: 'document',
+    component: () => import('@/views/document/document'),
+    meta: {title: '文档'}
+  },
+  {
     path: '/tinymce',
     name: 'tinymce',
     component: () => import('@/views/componentsDemo/richTextForTinyMce/richTextForTinyMce'),
@@ -47,6 +53,30 @@ const subChild = [
     name: 'charts02',
     component: () => import('@/views/charts/charts02/chartsTwo'),
     meta: {title: 'charts02'}
+  },
+  {
+    path: '/error-404',
+    name: 'error404',
+    component: () => import('@/views/errorPage/errPage44'),
+    meta: {title: "error404"}
+  },
+  {
+    path: '/error-500',
+    name: 'error500',
+    component: () => import('@/views/errorPage/errPage45'),
+    meta: {title: "error500"}
+  },
+  {
+    path: '/markdown',
+    name: 'markdown',
+    component: () => import('@/views/markdown/markdown'),
+    meta: {title: "markdown"}
+  },
+  {
+    path: '/workflow',
+    name: 'workflow',
+    component: () => import('@/views/workflow/workflow'),
+    meta: {title: '工作流'}
   }
 ]
 
@@ -60,7 +90,14 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/user/login/login')
+    component: () => import('@/views/user/login/login'),
+    meta: {title: 'login'}
+  },
+  {
+    // 会匹配所有路径, 跳到 404
+    // 该路由应该放到路由表的最后一项， 作为最后跳转项
+    path: '*',
+    component: () => import('@/views/errorPage/errPage44'),
   }
 ]
 

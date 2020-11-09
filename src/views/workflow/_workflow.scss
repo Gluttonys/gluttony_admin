@@ -1,0 +1,17 @@
+.el-tabs {
+  min-height:     100%;
+  box-sizing: border-box;
+
+  .el-button {
+    margin-top: 100px;
+    position:   relative;
+    left:       50%;
+    transform:  translateX(-50%);
+  }
+
+  .css_status {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+  }
+}

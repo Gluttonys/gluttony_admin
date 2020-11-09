@@ -33,8 +33,10 @@
               </el-image>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="profile">个人中心</el-dropdown-item>
-                <el-dropdown-item command="github">github</el-dropdown-item>
-                <el-dropdown-item command="gitee">码云</el-dropdown-item>
+                <a target="_blank" href="https://github.com/Gluttonys/gluttony_admin">
+                  <el-dropdown-item command="github">github</el-dropdown-item>
+                </a>
+                <el-dropdown-item command="gitee" disabled>码云</el-dropdown-item>
                 <el-dropdown-item command="document">文档</el-dropdown-item>
                 <el-dropdown-item command="logout">退出</el-dropdown-item>
               </el-dropdown-menu>
@@ -101,6 +103,7 @@ export default {
         case HEADER_OPTION.gitee:
           break
         case HEADER_OPTION.document:
+          this.$router.push({name: HEADER_OPTION.document})
           break
         case HEADER_OPTION.logout:
           removeToken()

@@ -18,8 +18,11 @@
         <el-form-item label="密码" prop="password">
           <el-input placeholder="请输入密码" v-model="formData.password" clearable show-password></el-input>
         </el-form-item>
+        <el-tag type="success">账号密码符合长度规定随便写</el-tag>
+        <br>
+        <br>
+        <el-button type="info" size="mini" @click="handleLogin('login_form')" >登录</el-button>
 
-        <el-button type="info" round @click="handleLogin('login_form')" >登录</el-button>
       </el-form>
 
     </div>
@@ -54,6 +57,7 @@ export default {
           /* 发起登录请求 */
           // statements...
           this.$message.success("登录成功")
+          this.$router.replace({name: 'profile'})
         } else {
           return false;
         }

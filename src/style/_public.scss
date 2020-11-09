@@ -4,20 +4,34 @@
 
 .bg_white {
   background-color: $base-color-white;
-  border-radius: 5px;
+  border-radius:    5px;
 }
 
 .stress {
   /* 着重文字 */
   font-weight: $--button-font-weight-6;
-  font-size: $font-size-big;
+  font-size:   $font-size-big;
   line-height: 2em;
 }
 
 .light {
   font-weight: $--button-font-weight-4;
-  font-size: $font-size-normal;
-  color: $base-font-color;
+  font-size:   $font-size-normal;
+  color:       $base-font-color;
   line-height: 1.3em;
 }
 
+.list {
+
+  color: $base-color-black;
+
+  a {
+    color:           inherit;
+    text-decoration: none;
+    transition:      .3s;
+
+    &:hover {
+      color: $menuActiveText;
+    }
+  }
+}

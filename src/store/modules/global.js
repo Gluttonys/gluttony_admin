@@ -20,7 +20,7 @@ const mutations = {                  /* 同步方法 */
     state.tagList.forEach(tagObg => {
       if (tagObg[0] === tag[0]) flag = true
     })
-    if (!flag) state.tagList.push(tag)
+    if (!flag && tag[1] !== 'login') state.tagList.push(tag)
   },
   toRemoveTag: (state, tag) => {     /* 删除指定的tag */
     /*

@@ -57,3 +57,22 @@
   }
 
 }
+
+@mixin no_operating {
+  /*
+    禁止用户操作， 选择， 拖动
+  */
+  user-select:       none;
+  -webkit-user-drag: none;
+}
+
+@mixin textOmit($line) {
+  /*
+     多行省略操作
+     $line : 具体的行数
+   */
+  display:            -webkit-box;
+  overflow:           hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}

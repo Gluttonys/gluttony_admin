@@ -1,3 +1,5 @@
+/* 高德地图 插件 */
+
 export let plugin = [
   'ToolBar',
   {
