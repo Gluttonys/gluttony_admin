@@ -2,19 +2,19 @@
   <div class="header">
     <el-row class="tools">
       <el-col :span="1" class="left bg_shadow">
-        <i class="el-icon-s-fold"></i>
+        <i class="el-icon-s-fold" @click="handleToggleSidebar"></i>
       </el-col>
       <el-col :span="9" class="center">
         <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ path: '/' }">活动管理</el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ path: '/' }">活动列表</el-breadcrumb-item>
-          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/profile' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item v-for="(item, index) in breadcrumb" :key="index">
+            {{item}}
+          </el-breadcrumb-item>
         </el-breadcrumb>
       </el-col>
       <el-col :span="14" class="right">
         <el-row justify="space-around">
-          <el-col :span="18">
+          <el-col :span="16">
             <el-input
                 placeholder="请输入内容"
                 suffix-icon="el-icon-search"
@@ -28,11 +28,19 @@
             <i class="fa fa-text-height" aria-hidden="true"></i>
           </el-col>
           <el-col :span="2" class="bg_shadow">
+            <el-popover placement="bottom" trigger="hover">
+              <el-badge :value="12" :max="20" slot="reference">
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+              </el-badge>
+              hello world
+            </el-popover>
+          </el-col>
+          <el-col :span="2" class="bg_shadow">
             <el-dropdown @command="handleCommand">
               <el-image class="avatar" fit="cover" :src="avatar_path">
               </el-image>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="profile">个人中心</el-dropdown-item>
+                <el-dropdown-item command="profile" :disabled="this.$route.fullPath.includes('profile')">个人中心</el-dropdown-item>
                 <a target="_blank" href="https://github.com/Gluttonys/gluttony_admin">
                   <el-dropdown-item command="github">github</el-dropdown-item>
                 </a>
@@ -56,7 +64,7 @@
             @close="handleDelTag(tag[0])"
             @click="$router.replace({name: tag[1]})"
             :closable="$store.getters.tagList.length !== 1"
-            >
+        >
           {{tag[0] }}
         </el-tag>
       </el-col>
@@ -79,12 +87,12 @@ export default {
     return {
       avatar_path,
       keyword: '',
+      breadcrumb: [],   /* 面包屑导航 */
     }
   },
   created() {
     console.log(this.tagList)
   },
-
   computed: {
     ...mapGetters(['tagList', 'currentTag'])
   },
@@ -113,6 +121,14 @@ export default {
     },
     toggleScreenFull() {
       screenfull.toggle();
+    },
+    handleToggleSidebar() {
+      this.$store.commit('header/setIsCollapse', !this.$store.getters.isCollapse)
+    }
+  },
+  watch: {
+    $route({meta}) {
+      this.breadcrumb = meta.superior ? [meta.superior, meta.title] : [meta.title]
     }
   }
 }

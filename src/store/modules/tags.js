@@ -10,7 +10,7 @@ const state = {  /* 状态管理 */
   * ]
   * */
   tagList: [],
-  currentTag: ''
+  currentTag: '',  // 当前标签
 }
 
 const mutations = {                  /* 同步方法 */

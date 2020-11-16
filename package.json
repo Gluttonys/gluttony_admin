@@ -15,6 +15,7 @@
     "echarts": "^4.9.0",
     "echarts-liquidfill": "^2.0.6",
     "element-ui": "^2.13.2",
+    "flow-design-tcd": "^0.1.4",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.20",
     "mavon-editor": "^2.9.0",

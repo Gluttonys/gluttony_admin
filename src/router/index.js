@@ -34,7 +34,7 @@ const subChild = [
     path: '/tinymce',
     name: 'tinymce',
     component: () => import('@/views/componentsDemo/richTextForTinyMce/richTextForTinyMce'),
-    meta: {title: 'tinymce'}
+    meta: {title: 'tinymce', superior: '组件'}
   },
   {
     path: '/map',
@@ -46,37 +46,43 @@ const subChild = [
     path: '/charts-01',
     name: 'charts01',
     component: () => import('@/views/charts/charts01/chartsOne'),
-    meta: {title: 'charts01'}
+    meta: {title: 'charts01', superior: '图表'}
   },
   {
     path: '/charts-02',
     name: 'charts02',
     component: () => import('@/views/charts/charts02/chartsTwo'),
-    meta: {title: 'charts02'}
+    meta: {title: 'charts02', superior: '图表'}
   },
   {
     path: '/error-404',
     name: 'error404',
     component: () => import('@/views/errorPage/errPage44'),
-    meta: {title: "error404"}
+    meta: {title: 'error404', superior: '错误页面'}
   },
   {
     path: '/error-500',
     name: 'error500',
     component: () => import('@/views/errorPage/errPage45'),
-    meta: {title: "error500"}
+    meta: {title: 'error500', superior: '错误页面'}
   },
   {
     path: '/markdown',
     name: 'markdown',
     component: () => import('@/views/markdown/markdown'),
-    meta: {title: "markdown"}
+    meta: {title: 'markdown', superior: '组件'}
   },
   {
     path: '/workflow',
     name: 'workflow',
     component: () => import('@/views/workflow/workflow'),
     meta: {title: '工作流'}
+  },
+  {
+    path: '/processEditor',
+    name: 'processEditor',
+    component: () => import('@/views/editors/processEditor/processEditor'),
+    meta: {title: '流程编辑器', superior: '图形编辑器'}
   }
 ]
 
@@ -109,8 +115,8 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   /* 必须调用 `next` */
-  store.commit('global/toAddTagList', [to.meta.title, to.name])  /* 二维数组保存tag + 路由 */
-  store.commit('global/toSetCurrentTag', to.meta.title)                 /* 设置当前标签 */
+  store.commit('tags/toAddTagList', [to.meta.title, to.name])  /* 二维数组保存tag + 路由 */
+  store.commit('tags/toSetCurrentTag', to.meta.title)                 /* 设置当前标签 */
   next()
 })
 

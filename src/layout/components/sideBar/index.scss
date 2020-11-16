@@ -1,53 +1,8 @@
-/* 重定义侧边栏样式 */
 .el-aside {
-  background-color: darken($light-blue, 15%);
-}
+  background-color: #545c64;
+  overflow-x: hidden;
 
-/deep/ .el-submenu {
-  .el-submenu__title {
-    color: $menuText;
-
-    &:focus, &:hover {
-      background-color: darken($light-blue, 5%);
-      color: $subMenuActiveText;
-    }
-  }
-
-  .el-menu.el-menu--inline {
-    .el-menu-item {
-      background-color: darken($light-blue, 25%)!important;
-
-      &:hover, &:focus {
-        background-color: darken($light-blue, 20%) !important;
-        color: $subMenuActiveText!important;
-      }
-    }
-  }
-
-}
-
-.el-menu {
-  background-color: darken($light-blue, 15%);
-  color: $subMenuActiveText;
-
-  /deep/ .el-menu-item {
-    background-color: darken($light-blue, 15%);
-    color: $menuText;
-
-    &:hover, &:focus {
-      background-color: darken($light-blue, 5%);
-      color: $subMenuActiveText;
-    }
-  }
-}
-
-
-
-.el-menu-item, .el-submenu {
-  i {
+  .fa {
     margin-right: 15px;
   }
 }
-
-
-

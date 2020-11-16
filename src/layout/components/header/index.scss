@@ -75,3 +75,8 @@
     text-decoration: none;
   }
 }
+
+/deep/ .el-badge__content.is-fixed {
+  transform: translateY(3px) translateX(100%);
+}
+

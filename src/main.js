@@ -8,6 +8,7 @@ import '@/plugins/element-ui'
 import '@/plugins/particles'
 import '@/plugins/gaode-map'
 import '@/plugins/vue-mavon-editor'
+import '@/plugins/flowDesignTcd'
 
 import '@/style/main.scss'  // 全局 css
 import 'animate.css'        // 动画库 https://animate.style/
