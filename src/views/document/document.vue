@@ -25,7 +25,7 @@
                  :h="item.h"
                  :i="item.i"
                  :key="item.i">
-        {{item.i}}
+        <el-image :src="require('@/assets/publicImage/background/mounted.jpg')"></el-image>
       </grid-item>
     </grid-layout>
   </div>
@@ -59,4 +59,12 @@ export default {
   font-size:        40px;
   line-height:      2em;
 }
+
+.el-image {
+  width:         100%;
+  height:        100%;
+  border-radius: 5px;
+  object-fit:    cover;
+}
+
 </style>
