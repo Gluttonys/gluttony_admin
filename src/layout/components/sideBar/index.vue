@@ -65,7 +65,7 @@
         </el-menu-item>
       </el-submenu>
 
-      <el-menu-item index="7" disabled>
+      <el-menu-item index="7" @click="$router.push({name: 'excel'})">
         <i class="fa fa-file-excel-o"></i> <span slot="title">Excel</span>
       </el-menu-item>
       <el-menu-item index="8" disabled>

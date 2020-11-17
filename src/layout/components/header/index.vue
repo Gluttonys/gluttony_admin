@@ -29,10 +29,10 @@
           </el-col>
           <el-col :span="2" class="bg_shadow">
             <el-popover placement="bottom" trigger="hover">
-              <el-badge :value="12" :max="20" slot="reference">
+              <el-badge :value="16" :max="20" slot="reference">
                 <i class="fa fa-bell-o" aria-hidden="true"></i>
               </el-badge>
-              hello world
+              <Inform/>
             </el-popover>
           </el-col>
           <el-col :span="2" class="bg_shadow">
@@ -40,7 +40,8 @@
               <el-image class="avatar" fit="cover" :src="avatar_path">
               </el-image>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="profile" :disabled="this.$route.fullPath.includes('profile')">个人中心</el-dropdown-item>
+                <el-dropdown-item command="profile" :disabled="this.$route.fullPath.includes('profile')">个人中心
+                </el-dropdown-item>
                 <a target="_blank" href="https://github.com/Gluttonys/gluttony_admin">
                   <el-dropdown-item command="github">github</el-dropdown-item>
                 </a>
@@ -81,6 +82,8 @@ import screenfull from 'screenfull'         /* 网页最大化插件 */
 import {removeToken} from '@/utils/auth'
 import {mapGetters} from 'vuex'
 
+import Inform from '@/components/inform/Inform'
+
 export default {
   name: 'index',
   data() {
@@ -90,8 +93,8 @@ export default {
       breadcrumb: [],   /* 面包屑导航 */
     }
   },
-  created() {
-    console.log(this.tagList)
+  components: {
+    Inform
   },
   computed: {
     ...mapGetters(['tagList', 'currentTag'])

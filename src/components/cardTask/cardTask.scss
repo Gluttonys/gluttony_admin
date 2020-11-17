@@ -1,0 +1,26 @@
+.card_task {
+
+  header {
+    display:               grid;
+    grid-template-columns: 3fr 1fr;
+    justify-content:       space-between;
+    align-items:           center;
+    margin-bottom:         10px;
+
+    .title {
+      line-height: 1.5em;
+      font-size:   16px;
+    }
+
+    .el-tag {
+      text-align: center;
+    }
+
+  }
+
+  .content {
+    color: lighten($base-color-black, 60%);
+    @include textOmit(2);
+  }
+
+}

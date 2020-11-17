@@ -83,6 +83,12 @@ const subChild = [
     name: 'processEditor',
     component: () => import('@/views/editors/processEditor/processEditor'),
     meta: {title: '流程编辑器', superior: '图形编辑器'}
+  },
+  {
+    path: '/excel',
+    name: 'excel',
+    component: () => import('@/views/excel/Excel'),
+    meta: {title: 'excel'}
   }
 ]
 

@@ -1,0 +1,28 @@
+.card_mess {
+  display:               grid;
+  grid-template-columns: 1fr 3fr;
+
+  .el-avatar {
+    margin-top: 10px;
+    position:  relative;
+    left:      50%;
+    transform: translateX(-50%);
+  }
+
+  .content {
+    margin-right: 10px;
+    .title {
+      font-weight: $--button-font-weight-6;
+      font-size:   16px;
+      @include textOmit(1);
+    }
+
+    .detail {
+      @include textOmit(2);
+    }
+
+    .time {
+      color: lighten($base-color-black, 60%);
+    }
+  }
+}

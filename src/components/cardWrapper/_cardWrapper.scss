@@ -1,0 +1,18 @@
+.card_wrapper {
+  min-height:       40px;
+  width:            260px;
+  background-color: #f1f1f1;
+  margin-bottom:    5px;
+  padding:          5px;
+  cursor:           pointer;
+  transition:       .3s;
+  border-radius:    5px;
+
+  &:hover {
+    background-color: lighten($gold, 20%);
+  }
+}
+
+.required {
+  opacity: .6;
+}
