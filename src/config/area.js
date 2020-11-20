@@ -1,218 +1,160 @@
 let options = [
   {
-    value: 'zhinan',
-    label: '指南',
+    value: 'anhui',
+    label: '安徽',
     children: [
       {
-        value: 'shejiyuanze',
-        label: '设计原则',
+        value: 'fuyang',
+        label: '阜阳',
         children: [{
-          value: 'yizhi',
-          label: '一致'
+          value: 'funan',
+          label: '阜南'
         }, {
-          value: 'fankui',
-          label: '反馈'
+          value: 'yingshang',
+          label: '颍上'
         }, {
-          value: 'xiaolv',
-          label: '效率'
+          value: 'linquan',
+          label: '临泉'
         }, {
-          value: 'kekong',
-          label: '可控'
+          value: 'taihe',
+          label: '太和'
         }]
       },
       {
-        value: 'daohang',
-        label: '导航',
+        value: 'hefei',
+        label: '合肥',
         children: [{
-          value: 'cexiangdaohang',
-          label: '侧向导航'
+          value: 'feidong',
+          label: '肥东'
         }, {
-          value: 'dingbudaohang',
-          label: '顶部导航'
+          value: 'feixi',
+          label: '肥西'
         }]
       }]
   },
   {
-    value: 'zujian',
-    label: '组件',
+    value: 'liaoning',
+    label: '辽宁',
     children: [
       {
-        value: 'basic',
-        label: 'Basic',
+        value: 'dalian',
+        label: '大连',
         children: [{
-          value: 'layout',
-          label: 'Layout 布局'
+          value: 'shahekou',
+          label: '沙河口'
         },
           {
-            value: 'color',
-            label: 'Color 色彩'
+            value: 'gaoxinyuan',
+            label: '高新园区'
           },
           {
-            value: 'typography',
-            label: 'Typography 字体'
+            value: 'ganjingziqu',
+            label: '甘井子区'
           },
           {
-            value: 'icon',
-            label: 'Icon 图标'
+            value: 'lvshunkouqu',
+            label: '旅顺口区'
           },
           {
-            value: 'button',
-            label: 'Button 按钮'
+            value: 'zhongshanqu',
+            label: '中山区'
           }]
       },
       {
-        value: 'form',
-        label: 'Form',
+        value: 'yingkou',
+        label: '营口',
         children: [{
-          value: 'radio',
-          label: 'Radio 单选框'
+          value: 'laobianqu',
+          label: '老边区'
         }, {
-          value: 'checkbox',
-          label: 'Checkbox 多选框'
+          value: 'dashiqiaoshi',
+          label: '大石桥市'
         }, {
-          value: 'input',
-          label: 'Input 输入框'
+          value: 'xishiqu',
+          label: '西市区'
         }, {
-          value: 'input-number',
-          label: 'InputNumber 计数器'
-        }, {
-          value: 'select',
-          label: 'Select 选择器'
-        }, {
-          value: 'cascader',
-          label: 'Cascader 级联选择器'
-        }, {
-          value: 'switch',
-          label: 'Switch 开关'
-        }, {
-          value: 'slider',
-          label: 'Slider 滑块'
-        }, {
-          value: 'time-picker',
-          label: 'TimePicker 时间选择器'
-        }, {
-          value: 'date-picker',
-          label: 'DatePicker 日期选择器'
-        }, {
-          value: 'datetime-picker',
-          label: 'DateTimePicker 日期时间选择器'
-        }, {
-          value: 'upload',
-          label: 'Upload 上传'
-        }, {
-          value: 'rate',
-          label: 'Rate 评分'
-        }, {
-          value: 'form',
-          label: 'Form 表单'
+          value: 'zhanqianqu',
+          label: '站前区'
         }]
       },
       {
-        value: 'data',
-        label: 'Data',
+        value: 'shenyang',
+        label: '沈阳',
         children: [{
-          value: 'table',
-          label: 'Table 表格'
+          value: 'huangguqu',
+          label: '皇菇区'
         }, {
-          value: 'tag',
-          label: 'Tag 标签'
+          value: 'hunnanqu',
+          label: '浑南区'
         }, {
-          value: 'progress',
-          label: 'Progress 进度条'
+          value: 'sujiatunqu',
+          label: '苏家屯区'
         }, {
-          value: 'tree',
-          label: 'Tree 树形控件'
+          value: 'yuhongqu',
+          label: '于洪区'
         }, {
-          value: 'pagination',
-          label: 'Pagination 分页'
+          value: 'dongzhouqu',
+          label: '东洲区'
         }, {
-          value: 'badge',
-          label: 'Badge 标记'
-        }]
-      },
-      {
-        value: 'notice',
-        label: 'Notice',
-        children: [{
-          value: 'alert',
-          label: 'Alert 警告'
-        }, {
-          value: 'loading',
-          label: 'Loading 加载'
-        }, {
-          value: 'message',
-          label: 'Message 消息提示'
-        }, {
-          value: 'message-box',
-          label: 'MessageBox 弹框'
-        }, {
-          value: 'notification',
-          label: 'Notification 通知'
-        }]
-      },
-      {
-        value: 'navigation',
-        label: 'Navigation',
-        children: [{
-          value: 'menu',
-          label: 'NavMenu 导航菜单'
-        }, {
-          value: 'tabs',
-          label: 'Tabs 标签页'
-        }, {
-          value: 'breadcrumb',
-          label: 'Breadcrumb 面包屑'
-        }, {
-          value: 'dropdown',
-          label: 'Dropdown 下拉菜单'
-        },
-          {
-            value: 'steps',
-            label: 'Steps 步骤条'
-          }]
-      },
-      {
-        value: 'others',
-        label: 'Others',
-        children: [{
-          value: 'dialog',
-          label: 'Dialog 对话框'
-        }, {
-          value: 'tooltip',
-          label: 'Tooltip 文字提示'
-        }, {
-          value: 'popover',
-          label: 'Popover 弹出框'
-        }, {
-          value: 'card',
-          label: 'Card 卡片'
-        }, {
-          value: 'carousel',
-          label: 'Carousel 走马灯'
-        }, {
-          value: 'collapse',
-          label: 'Collapse 折叠面板'
+          value: 'shenbeixinqu',
+          label: '沈北新区'
         }]
       }]
   },
   {
-    value: 'ziyuan',
-    label: '资源',
+    value: 'jiangsu',
+    label: '江苏',
     children: [
       {
-        value: 'axure',
-        label: 'Axure Components'
+        value: 'nanjing',
+        label: '南京市'
       },
       {
-        value: 'sketch',
-        label: 'Sketch Templates'
+        value: 'suqian',
+        label: '宿迁'
       },
       {
-        value: 'jiaohu',
-        label: '组件交互文档'
+        value: 'zhenjiang',
+        label: '镇江'
       }]
   }]
 
+const dict = {
+  anhui: '安徽',
+  fuyang: '阜阳',
+  funan: '阜南',
+  yingshang: '颍上',
+  linquan: '临泉',
+  taihe: '太和',
+  hefei: '合肥',
+  feidong: '肥东',
+  feixi: '肥西',
+  liaoning: '辽宁',
+  dalian: '大连',
+  shahekou: '沙河口',
+  gaoxinyuan: '高新园区',
+  ganjingziqu: '甘井子区',
+  lvshunkouqu: '旅顺口区',
+  zhongshanqu: '中山区',
+  yingkou: '营口',
+  laobianqu: '老边区',
+  dashiqiaoshi: '大石桥市',
+  xishiqu: '西市区',
+  zhanqianqu: '站前区',
+  shenyang: '沈阳',
+  huangguqu: '皇菇区',
+  hunnanqu: '浑南区',
+  sujiatunqu: '苏家屯区',
+  yuhongqu: '于洪区',
+  dongzhouqu: '东洲区',
+  shenbeixinqu: '沈北新区',
+  jiangsu: '江苏',
+  nanjing: '南京',
+  zhenjiang: '镇江',
+  suqian: '宿迁'
+}
+
+
 export {
-  options
+  options, dict
 }

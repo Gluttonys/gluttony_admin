@@ -10,5 +10,18 @@ module.exports = {
         })
         .end()
     })
-  }
+  },
+
+  configureWebpack: {
+    /* webpack 配置 */
+    /*
+      如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。
+      https://cli.vuejs.org/zh/config/#integrity
+    */
+    resolve: {
+      alias: {
+        'vendor': path.resolve(__dirname, '../src/plugins/2Excel')
+      }
+    }
+  },
 }

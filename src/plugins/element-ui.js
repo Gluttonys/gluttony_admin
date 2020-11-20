@@ -41,6 +41,7 @@ import {
   Backtop,
   Steps,
   Checkbox,
+  Pagination,
   CheckboxGroup,
   Select,
   Collapse,
@@ -56,6 +57,7 @@ import {
   Loading,
   Message,
   MessageBox,
+  Notification,
   Transfer
 } from 'element-ui';
 
@@ -70,6 +72,7 @@ const components = [
   Switch,
   Transfer,
   Cascader,
+  Pagination,
   Badge,
   Backtop,
   DatePicker,
@@ -122,6 +125,7 @@ Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$prompt = MessageBox.prompt;
 Vue.prototype.$notify = Notification;
 Vue.prototype.$message = Message;
+
 
 
 
