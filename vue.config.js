@@ -1,3 +1,5 @@
+const {resolve} = require("path")
+
 module.exports = {
   chainWebpack: config => {
     const oneOfsMap = config.module.rule('scss').oneOfs.store
@@ -20,7 +22,7 @@ module.exports = {
     */
     resolve: {
       alias: {
-        'vendor': path.resolve(__dirname, '../src/plugins/2Excel')
+        'vendor': resolve(__dirname, '../src/plugins/2Excel')
       }
     }
   },

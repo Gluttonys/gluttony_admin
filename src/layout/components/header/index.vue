@@ -102,7 +102,7 @@ export default {
 
   methods: {
     handleDelTag(tag) {
-      this.$store.commit('global/toRemoveTag', tag)
+      this.$store.commit('tags/toRemoveTag', tag)
     },
     handleCommand(command) {
       switch (command) {
