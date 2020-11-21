@@ -1,24 +1,22 @@
 # gluttony-admin
----
 
-## 练手项目
 
-- **启动项目**
-- `git clone https://github.com/Gluttonys/gluttony_admin.git`
-- `npm install`
-- `npm run server`
+## 启动项目
 
----
+1. `git clone https://github.com/Gluttonys/gluttony_admin.git`
+2. `npm install`
+3. `npm run server`
 
-- 演示图片
-[![D1Cn7d.png](https://s3.ax1x.com/2020/11/21/D1Cn7d.png)](https://imgchr.com/i/D1Cn7d)
+## 演示图片
 
-[![D1Cm0H.png](https://s3.ax1x.com/2020/11/21/D1Cm0H.png)](https://imgchr.com/i/D1Cm0H)
+![500错误页面](./mockData/readme-img/readme-500.png)
 
-[![D1CQht.png](https://s3.ax1x.com/2020/11/21/D1CQht.png)](https://imgchr.com/i/D1CQht)
+![仪表盘页面](./mockData/readme-img/readme-dashboard.png)
 
-[![D1CKAA.png](https://s3.ax1x.com/2020/11/21/D1CKAA.png)](https://imgchr.com/i/D1CKAA)
+![登录页面](./mockData/readme-img/readme-login.png)
 
-[![D1Cene.png](https://s3.ax1x.com/2020/11/21/D1Cene.png)](https://imgchr.com/i/D1Cene)
+![地图](./mockData/readme-img/readme-map.png)
 
-[![D1CMtI.png](https://s3.ax1x.com/2020/11/21/D1CMtI.png)](https://imgchr.com/i/D1CMtI)
+![编辑器](./mockData/readme-img/readme-process.png)
+
+![个人中心](./mockData/readme-img/readme-profile.png)
