@@ -1,13 +1,13 @@
 # gluttony-admin
 
 
-## 启动项目
+## run the project
 
 1. `git clone https://github.com/Gluttonys/gluttony_admin.git`
 2. `npm install`
 3. `npm run server`
 
-## 演示图片
+## project presentations
 
 ![500错误页面](./mockData/readme-img/readme-500.png)
 
@@ -20,3 +20,9 @@
 ![编辑器](./mockData/readme-img/readme-process.png)
 
 ![个人中心](./mockData/readme-img/readme-profile.png)
+
+## the next thing
+
+0. improvement of relevant request interface
+1. the perfection of map plug in function
+2. OA complete workflow functions

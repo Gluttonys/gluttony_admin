@@ -21,7 +21,7 @@
         <el-tag type="success">账号密码符合长度规定随便写</el-tag>
         <br>
         <br>
-        <el-button type="info" size="mini" @click="handleLogin('login_form')" >登录</el-button>
+        <el-button type="info" size="mini" @click="handleLogin('login_form')">登录</el-button>
 
       </el-form>
 
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import {login} from '@/network/user'
+
 export default {
   name: 'login',
   data() {
@@ -40,24 +42,25 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 5, max: 16, message: '长度在 5 到 16 个字符', trigger: 'blur' }
+          {required: true, message: '请输入用户名', trigger: 'blur'},
+          {min: 5, max: 16, message: '长度在 5 到 16 个字符', trigger: 'blur'}
         ],
         password: [
-          { required: true, message: '请输入密码', trigger: 'blur' },
-          { min: 6, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur' }
+          {required: true, message: '请输入密码', trigger: 'blur'},
+          {min: 5, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur'}
         ]
       }
     }
   },
   methods: {
     handleLogin(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(async valid => {
         if (valid) {
           /* 发起登录请求 */
           // statements...
-          this.$message.success("登录成功")
-          this.$router.replace({name: 'profile'})
+          const data = await login(this.formData.username, this.formData.password)
+          console.log("data", data)
+          // this.$router.replace({name: 'profile'})
         } else {
           return false;
         }

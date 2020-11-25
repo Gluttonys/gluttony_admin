@@ -1,10 +1,13 @@
 import axios from 'axios'
+// eslint-disable-next-line
 import {MessageBox, Message} from 'element-ui'
 import store from '@/store'
+// eslint-disable-next-line
 import {getToken, toLogin} from '@/utils/auth'
 
 
 const service = axios.create({
+  // https://www.easy-mock.com/mock/5fb9d0683f90e10d9664665b/gluttony-admin
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000
 })
@@ -13,6 +16,7 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     if (store.getters.token) {
+      /* 发送请求时 携带token */
       config.headers['X-Token'] = getToken()
     }
     return config
@@ -26,35 +30,21 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   response => {
-    const res = response.data
-
-    if (res.code !== 20000) {
+    const {data: res} = response
+    if (res.status !== 200) {
       Message({
-        message: res.message || 'Error',
+        message: res.message || '发生错误， 返回错误码不正确！ request.js: line 37',
         type: 'error',
         duration: 5 * 1000
       })
-
-      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
-        MessageBox.confirm(
-          '您已经退出了登录，您可以继续停留在此页面， 或者选择重新登录',
-          '退出登录提醒',
-          {
-          confirmButtonText: '请重新登录',
-          cancelButtonText: 'Cancel',
-          type: 'warning'
-          }
-        ).then(() => {
-          toLogin()
-          // store.dispatch('user/resetToken').then(() => {
-          //   location.reload()
-          // })
-        })
-      }
+      /*
+      * 这里可以尽可能多的对返沪的status状态码做出判断 token过期重新登录， 请求失败等~
+      *
+      * 我这个接口并没有提供 message 属性 ， 所以一直都是 Error 🚀🚀🚀
+      * */
       return Promise.reject(new Error(res.message || 'Error'))
-    } else {
-      return res
     }
+    return res
   },
   error => {
     console.log('err' + error) // for debug
