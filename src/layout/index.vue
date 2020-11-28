@@ -16,6 +16,9 @@
 import layoutSidebar from '@/layout/components/sideBar'
 import layoutHeader from '@/layout/components/header'
 import layoutMain from '@/layout/components/main'
+import Cookie from 'js-cookie'
+
+import {loginWithToken} from '@/network/user'
 
 export default {
   name: 'index',
@@ -23,6 +26,23 @@ export default {
     layoutSidebar,
     layoutHeader,
     layoutMain
+  },
+  created() {
+    this.initUserinfo()
+  },
+  methods: {
+    async initUserinfo() {
+      if (!this.$store.getters.isLogin) {
+        let token = Cookie.get('token')
+        if (Cookie.get('token')) {
+          let {userinfo} = await loginWithToken(token)
+          this.$store.commit('user/setUserinfo', userinfo)
+          console.clear()
+        }else {
+          this.$router.push({name: 'login'})
+        }
+      }
+    }
   }
 }
 </script>

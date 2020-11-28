@@ -22,7 +22,7 @@ export default {
   overflow-y:       auto;
   background-color: darken($base-menu-color, 5%);
   box-shadow:       $base-box-shadow-plane;
-  padding:          10px;
   box-sizing:       border-box;
+  padding:          10px;
 }
 </style>

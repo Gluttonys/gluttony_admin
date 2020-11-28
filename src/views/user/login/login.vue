@@ -16,13 +16,15 @@
           <el-input placeholder="请输入用户名" v-model="formData.username" clearable></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input placeholder="请输入密码" v-model="formData.password" clearable show-password></el-input>
+          <el-input
+              placeholder="请输入密码"
+              v-model="formData.password"
+              @keydown.enter.prevent.native="handleLogin('login_form')"
+              clearable
+              show-password></el-input>
         </el-form-item>
-        <el-tag type="success">账号密码符合长度规定随便写</el-tag>
-        <br>
         <br>
         <el-button type="info" size="mini" @click="handleLogin('login_form')">登录</el-button>
-
       </el-form>
 
     </div>
@@ -30,7 +32,6 @@
 </template>
 
 <script>
-import {login} from '@/network/user'
 
 export default {
   name: 'login',
@@ -56,11 +57,14 @@ export default {
     handleLogin(formName) {
       this.$refs[formName].validate(async valid => {
         if (valid) {
-          /* 发起登录请求 */
-          // statements...
-          const data = await login(this.formData.username, this.formData.password)
-          console.log("data", data)
-          // this.$router.replace({name: 'profile'})
+          let loginStatus = await this.$store.dispatch('user/toLogin', this.formData)
+          if (loginStatus) {
+            /* 登录成功， 用户信息已经绑定到全局 */
+            await this.$router.replace({name: 'profile'})
+            this.$message.success("登录成功~")
+          } else {
+            this.$message.error("账号或密码输入错误， 请尝试重新登录~")
+          }
         } else {
           return false;
         }

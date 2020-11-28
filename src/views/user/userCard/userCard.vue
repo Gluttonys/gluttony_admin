@@ -4,12 +4,12 @@
 
     <div class="info_area">
       <div class="avatar">
-        <el-image fit="cover" :src="avatar_path"></el-image>
+        <el-image fit="cover" :src="userinfo['avatar']"></el-image>
         <div class="stress">早上好啊！</div>
         <div class="light">管理员</div>
       </div>
-      <div class="stress">Super admin</div>
-      <div class="light">admin</div>
+      <div class="stress" v-text="userinfo['nickname']"></div>
+      <div class="light" v-text="userinfo['username']"></div>
     </div>
 
     <div class="section">
@@ -18,8 +18,10 @@
           <i class="fa fa-graduation-cap" aria-hidden="true"></i> 教育
         </div>
         <hr>
-        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis cupiditate, debitis dolorem .</p>
+        <p class="light" v-text="userinfo['desc']"></p>
       </div>
+      <br>
+      <br>
       <div class="part">
         <div class="stress">
           <i class="fa fa-paint-brush" aria-hidden="true"></i> 技能
@@ -43,15 +45,11 @@
 </template>
 
 <script>
-
-import {avatar_path} from '../../../../mockData/const'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: 'userCard',
-  data() {
-    return {
-      avatar_path
-    }
+  computed: {
+    ...mapGetters(['userinfo', 'isLogin']),
   }
 }
 </script>

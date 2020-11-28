@@ -1,9 +1,10 @@
 import axios from 'axios'
 // eslint-disable-next-line
-import {MessageBox, Message} from 'element-ui'
-import store from '@/store'
-// eslint-disable-next-line
-import {getToken, toLogin} from '@/utils/auth'
+import {Message} from 'element-ui'
+
+import Cookie from 'js-cookie'
+import Router from '../router'
+
 
 
 const service = axios.create({
@@ -15,14 +16,16 @@ const service = axios.create({
 
 service.interceptors.request.use(
   config => {
-    if (store.getters.token) {
-      /* 发送请求时 携带token */
-      config.headers['X-Token'] = getToken()
+    /* 请求时， 二次确认是否登录， 没有登录继而返回登录页面 */
+    if (!config.url.includes('login') && !Cookie.get('token')) {
+      Router.push({name: 'login'})
+    } else {
+      config.headers['token'] = Cookie.get('token')
+      return config
     }
-    return config
   },
   error => {
-    console.log(error) // for debug
+    console.error(error) // for debug
     return Promise.reject(error)
   }
 )

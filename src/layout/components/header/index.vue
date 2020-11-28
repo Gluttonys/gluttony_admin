@@ -37,7 +37,7 @@
           </el-col>
           <el-col :span="2" class="bg_shadow">
             <el-dropdown @command="handleCommand">
-              <el-image class="avatar" fit="cover" :src="avatar_path">
+              <el-image v-cloak class="avatar" fit="cover" :src="$store.getters.userinfo.avatar">
               </el-image>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="profile" :disabled="this.$route.fullPath.includes('profile')">个人中心
@@ -76,19 +76,15 @@
 <script>
 
 import {HEADER_OPTION} from '@/config/settings'
-import {avatar_path} from '../../../../mockData/const'
-
 import screenfull from 'screenfull'         /* 网页最大化插件 */
-import {removeToken} from '@/utils/auth'
 import {mapGetters} from 'vuex'
-
+import Cookie from 'js-cookie'
 import Inform from '@/components/inform/Inform'
 
 export default {
   name: 'index',
   data() {
     return {
-      avatar_path,
       keyword: '',
       breadcrumb: [],   /* 面包屑导航 */
     }
@@ -117,8 +113,10 @@ export default {
           this.$router.push({name: HEADER_OPTION.document})
           break
         case HEADER_OPTION.logout:
-          removeToken()
+          Cookie.remove('token')
           this.$router.push({name: 'login'})
+          this.$store.commit('user/removeUserinfo')
+          this.$store.commit('user/setIsLogin', false)
           break
       }
     },

@@ -8,26 +8,25 @@ export let search = {
         city: "",
         citylimit: true
       },
-      mapCenter: null
+      mapCenter: [121.59996, 31.197646],    /* 当前地图中心点 */
     };
   },
   methods: {
-    addMarker: function () {
-      let lng = 121.5 + Math.round(Math.random() * 1000) / 10000;
-      let lat = 31.197646 + Math.round(Math.random() * 500) / 10000;
-      this.markers.push([lng, lat]);
-    },
     onSearchResult(pois) {
+      console.log(this.searchOption.city)
+      // 清空历史搜索结果
+      this.markers = []
       let latSum = 0;
       let lngSum = 0;
-      if (pois.length > 0) {
+      console.log("搜索结果", pois)
+      if (pois.length > 0) {   /* 如果查找到搜索结果， 添加到结果列表中去 */
         pois.forEach(poi => {
           let {lng, lat} = poi;
           lngSum += lng;
           latSum += lat;
           this.markers.push([poi.lng, poi.lat]);
         });
-        let center = {
+        let center = {    // 搜索结果个点的中心
           lng: lngSum / pois.length,
           lat: latSum / pois.length
         };

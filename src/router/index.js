@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import store from '@/store'
 import layout from '@/layout'
+import store from '@/store'
+import Cookie from 'js-cookie'
 
 Vue.use(VueRouter)
 
@@ -123,7 +124,11 @@ router.beforeEach((to, from, next) => {
   /* 必须调用 `next` */
   store.commit('tags/toAddTagList', [to.meta.title, to.name])  /* 二维数组保存tag + 路由 */
   store.commit('tags/toSetCurrentTag', to.meta.title)                 /* 设置当前标签 */
-  next()
+  if (!to.fullPath.includes('login') && !Cookie.get('token')) {
+    if (from.name !== 'login') router.push({name: 'login'})
+  } else {
+    next()
+  }
 })
 
 router.beforeResolve((to, from, next) => {
