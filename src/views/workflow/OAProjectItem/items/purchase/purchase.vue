@@ -61,7 +61,7 @@ export default {
       rules: {
         name: [
           {required: true, message: '请输入采购单号', trigger: 'blur'},
-          {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
+          {min: 3, max: 16, message: '长度在 3 到 5 个字符', trigger: 'blur'}
         ],
         region: [
           {required: true, message: '请选择或输入采购内容', trigger: 'change'}
@@ -88,7 +88,7 @@ export default {
           informOAFormWithData(this.ruleForm)
           this.$message.success("信息填写合法！")
         } else {
-          console.log('error submit!!');
+          this.$message.error("error submit!!")
           return false;
         }
       });

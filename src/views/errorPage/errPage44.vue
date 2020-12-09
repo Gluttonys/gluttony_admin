@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="tip">Oops,  404 !!</div>
+    <div class="tip">Oops, 404 !!</div>
     <p class="mess">We can't seem to find the page</p>
     <br>
     <br>
@@ -32,6 +32,8 @@ export default {
   background-color: $base-color-white;
   padding:          50px;
   position:         relative;
+  min-height:       100vh;
+  box-sizing:       border-box;
 
   .tip {
     font-weight: 700;
@@ -50,7 +52,7 @@ export default {
   }
 
   .list {
-    font-size: 24px;
+    font-size:   18px;
     line-height: 1.5em;
   }
 

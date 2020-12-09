@@ -7,9 +7,11 @@
         <el-step title="添加审批人"></el-step>
         <el-step title="提交信息"></el-step>
       </el-steps>
-      <component :is="currentComponent" :oaPro.sync="oaPro"></component>
+      <keep-alive>
+        <component :is="currentComponent" :oaPro.sync="oaPro"></component>
+      </keep-alive>
       <el-button @click="stepsSub">上一步</el-button>
-      <el-button @click="stepsAdd">下一步</el-button>
+      <el-button @click="stepsAdd">{{btnMess}}</el-button>
     </el-tab-pane>
     <el-tab-pane class="css_status" label="OA 状态">
       <OAStateusCard v-for="item in 8" :key="item" :data="statusCardData"></OAStateusCard>
@@ -24,6 +26,7 @@
 import chooseOAProIndex from '@/views/workflow/OAProjectItem/chooseOAProIndex'
 import purchase from '@/views/workflow/OAProjectItem/items/purchase/purchase'
 import approver from '@/views/workflow/OAProjectItem/approver/approver'
+import submit from '@/views/workflow/OAProjectItem/submit/submit'
 
 import OAStateusCard from '@/components/OAStateusCard/OAStateusCard'
 
@@ -36,6 +39,7 @@ export default {
     chooseOAProIndex,
     purchase,
     approver,
+    submit,
     OAStateusCard
   },
   data() {
@@ -45,18 +49,19 @@ export default {
       active: 1,                             /* steps */
       currentComponent: 'chooseOAProIndex',  /* 动态组件 */
       statusCardData: {
-        avatar: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1791190915,4204258858&fm=26&gp=0.jpg",
-        name: "gluttony",
-        time: "2020 11 08",
-        type: "采购审批",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n" +
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n" +
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n" +
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n" +
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!",
+        avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1791190915,4204258858&fm=26&gp=0.jpg',
+        name: 'gluttony',
+        time: '2020-11-08',
+        type: '采购审批',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n' +
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n' +
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n' +
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!\n' +
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, totam!',
         step: Math.ceil(Math.random() * 4),
         urgent: Math.random() > 0.5
-      }
+      },
+      btnMess: '下一步'
     }
   },
   mounted() {
@@ -64,10 +69,17 @@ export default {
   },
   methods: {
     stepsAdd() {
-      if (this.active < 4 && this.oaPro.trim()) {
-        this.active++
-      } else {
+      if (!this.oaPro.trim()) {
         this.$message.warning('请选择一个oa项目')
+      }
+      if (this.active++ === 4) {
+        // this.$message.success("点击了提交")
+        this.$notify({
+          type: 'success',
+          message: '项目已开始发起审批！'
+        })
+        this.active = 1
+
       }
     },
     stepsSub() {
@@ -78,12 +90,15 @@ export default {
     active(value) {
       switch (value) {
         case 1:
+          this.btnMess = '下一步'
           this.currentComponent = 'chooseOAProIndex'
           break
         case 2:
+          this.btnMess = '下一步'
           this.currentComponent = this.oaPro
           break
         case 3:
+          this.btnMess = '下一步'
           if (this.formData) {
             this.currentComponent = 'approver'
           } else {
@@ -92,6 +107,8 @@ export default {
           }
           break
         case 4:
+          this.currentComponent = 'submit'
+          this.btnMess = '提交'
           break
       }
     }
