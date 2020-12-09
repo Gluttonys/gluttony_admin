@@ -8,9 +8,7 @@
         </p>
       </el-col>
       <el-col :span="6">
-        <div ref="drip" class="charts"></div>
-        <el-button size="mini" @click="drip += 1">+</el-button>
-        <el-button size="mini" @click="drip -= 1">-</el-button>
+
       </el-col>
     </el-row>
 
@@ -82,20 +80,18 @@
 
 <script>
 import {option} from '@/config/echarts/dashboardLineCharts'
-import {dynamicOption} from '@/config/echarts/dripCharts'
 import {roseOption} from '@/config/echarts/roseCharts'
 import {galleryOption} from '@/config/echarts/galleryCharts'
 import {dottedOption} from '@/config/echarts/dottedCharts'
-
 import {tableData} from '../../../mockData/tableData'
 
 const echarts = require('echarts')
-// <component :is="currentRole" />  动态组件
+
 export default {
   name: 'dashboard',
   data() {
     return {
-      drip: 5,
+      // drip: 5,
       tableData,
       multipleSelection: []
     }
@@ -106,7 +102,6 @@ export default {
   methods: {
     initCharts() {
       echarts.init(this.$refs.sales).setOption(option);
-      echarts.init(this.$refs.drip).setOption(dynamicOption(this.drip / 10))
       echarts.init(this.$refs.rose).setOption(roseOption)
       echarts.init(this.$refs.gallery).setOption(galleryOption)
       echarts.init(this.$refs.dotted).setOption(dottedOption)
@@ -131,14 +126,6 @@ export default {
           break
       }
       return result
-    }
-  },
-  watch: {
-    drip: {
-      handler(value) {
-        echarts.init(this.$refs.drip).setOption(dynamicOption(value / 10))
-      },
-      deep: true,       /* 深度监听 */
     }
   }
 }

@@ -4,12 +4,12 @@
 
     <div class="info_area">
       <div class="avatar">
-        <el-image fit="cover" :src="userinfo['avatar']"></el-image>
+        <el-image fit="cover" :src="userinfo ? userinfo['avatar']: ''"></el-image>
         <div class="stress">早上好啊！</div>
         <div class="light">管理员</div>
       </div>
-      <div class="stress" v-text="userinfo['nickname']"></div>
-      <div class="light" v-text="userinfo['username']"></div>
+      <div class="stress" v-text="userinfo ? userinfo['nickname']: ''"></div>
+      <div class="light" v-text="userinfo ? userinfo['username']: ''"></div>
     </div>
 
     <div class="section">
@@ -18,7 +18,7 @@
           <i class="fa fa-graduation-cap" aria-hidden="true"></i> 教育
         </div>
         <hr>
-        <p class="light" v-text="userinfo['desc']"></p>
+        <p class="light" v-text="userinfo ? userinfo['desc']: ''"></p>
       </div>
       <br>
       <br>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 
 export default {
   computed: {

@@ -20,7 +20,6 @@
         <i class="fa fa-thumbs-up" aria-hidden="true"></i> 点赞
       </div>
     </div>
-
   </div>
 </template>
 
@@ -34,9 +33,6 @@ export default {
       type: Object,
       require: true
     }
-  },
-  mounted() {
-    console.log(this.messData)
   },
   methods: {
     formatTime,parseTime

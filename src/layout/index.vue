@@ -37,7 +37,6 @@ export default {
         if (Cookie.get('token')) {
           let {userinfo} = await loginWithToken(token)
           this.$store.commit('user/setUserinfo', userinfo)
-          console.clear()
         }else {
           this.$router.push({name: 'login'})
         }

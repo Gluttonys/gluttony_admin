@@ -1,5 +1,4 @@
 import axios from 'axios'
-// eslint-disable-next-line
 import {Message} from 'element-ui'
 
 import Cookie from 'js-cookie'
@@ -20,6 +19,10 @@ service.interceptors.request.use(
     if (!config.url.includes('login') && !Cookie.get('token')) {
       Router.push({name: 'login'})
     } else {
+      /*
+      * 添加请求头信息
+      * 。。。
+      * */
       config.headers['token'] = Cookie.get('token')
       return config
     }
@@ -60,4 +63,23 @@ service.interceptors.response.use(
   }
 )
 
-export default service
+function request2Get(config) {
+  return service({
+    ...config,
+    method: 'get'
+  })
+}
+
+
+function request2Post(config) {
+  return service({
+    ...config,
+    method: 'post'
+  })
+}
+
+
+export {
+  request2Get,
+  request2Post
+}

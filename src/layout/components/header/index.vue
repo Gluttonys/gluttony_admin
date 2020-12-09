@@ -37,8 +37,7 @@
           </el-col>
           <el-col :span="2" class="bg_shadow">
             <el-dropdown @command="handleCommand">
-              <el-image v-cloak class="avatar" fit="cover" :src="$store.getters.userinfo.avatar">
-              </el-image>
+              <el-image v-cloak class="avatar" fit="cover" :src="$store.getters.userinfo ? $store.getters.userinfo.avatar : ''"/>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="profile" :disabled="this.$route.fullPath.includes('profile')">个人中心
                 </el-dropdown-item>
@@ -80,6 +79,7 @@ import screenfull from 'screenfull'         /* 网页最大化插件 */
 import {mapGetters} from 'vuex'
 import Cookie from 'js-cookie'
 import Inform from '@/components/inform/Inform'
+
 
 export default {
   name: 'index',

@@ -1,9 +1,11 @@
 <template>
   <div class="info_panel">
     <el-tabs v-model="activeName" @tab-click="handleTabChange">
+
       <el-tab-pane label="最新消息" name="news">
-        <mess-card :mess-data="testData" v-for="card in 5" :key="card"></mess-card>
+        <mess-card :mess-data="card" v-for="card in newsList" :key="card.id"></mess-card>
       </el-tab-pane>
+
       <el-tab-pane label="时间线" name="timeline">
         <el-timeline>
           <el-timeline-item timestamp="2018/4/12" placement="top">
@@ -26,6 +28,7 @@
           </el-timeline-item>
         </el-timeline>
       </el-tab-pane>
+
       <el-tab-pane label="账号" name="account">
         <el-form v-model="accountData" :rules="rules" ref="accountForm" label-width="50px">
           <el-form-item label="姓名" prop="name">
@@ -47,47 +50,34 @@
 <script>
 import messCard from '@/components/messCard/messCard'
 import {validateEmail} from '@/utils/validate'
+import {getLatestNews} from '@/network/common'
 
 export default {
   name: 'infoPanel',
   data() {
     let validateFormEmail = (rule, value, callback) => {  /* 自定义校验规则 */
       if (value === '') {
-        callback(new Error('请输入邮箱'));
+        callback(new Error('请输入邮箱'))
       } else {
         if (this.accountData.email !== '' && validateEmail(value)) {
-          this.$refs.ruleForm.validateField('checkPass');
+          this.$refs.ruleForm.validateField('checkPass')
         }
-        callback();
+        callback()
       }
-    };
+    }
 
     return {
       activeName: 'news',
-      testData: {
-        avatarImagePath: 'https://img.ui.cn/data/file/8/7/1/414178.gif',
-        name: '钢铁侠',
-        time: new Date(),
-        mess: 'Lorem ipsum dolor sit amet, ' +
-            'consectetur adipisicing elit. Ab ipsa, modi ' +
-            'nulla perspiciatis placeat quibusdam quis' +
-            ' reprehenderit repudiandae sequi, soluta, ' +
-            'tempore temporibus voluptatem voluptates. ' +
-            'Eos harum magnam maxime nam, nulla omnis recusandae' +
-            ' rem. Accusantium amet animi atque corporis culpa' +
-            ' deleniti earum error esse eveniet illum inventore ' +
-            'ipsa ipsum minus mollitia nostrum obcaecati odio perferendis' +
-            ' placeat porro possimus quaerat quia quos reprehenderit' +
-            ' sapiente sit temporibus totam, ' +
-            'ut vel vitae voluptate voluptates?'
-      },
+
+      newsList: [],
 
       accountData: {
         name: '',
         email: ''
       },
 
-      rules: {  /* element 自带的校验规则 */
+      /* element 自带的校验规则 */
+      rules: {
         name: [
           {required: true, message: '请输入用户名称', trigger: 'blur'},
           {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
@@ -100,10 +90,19 @@ export default {
 
     }
   },
+
+  created() {
+    this.initLatestNews()
+  },
+
   components: {
     messCard
   },
   methods: {
+    async initLatestNews() {
+      const {newsList} = await getLatestNews()
+      this.newsList = newsList
+    },
     handleTabChange(tab, event) {
       console.log('tab栏切换', tab, event)
     },
@@ -111,12 +110,12 @@ export default {
       /* element 表单验证成功回调 */
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('数据验证成功！');
+          alert('数据验证成功！')
         } else {
-          console.log('error submit!!');
-          return false;
+          console.log('error submit!!')
+          return false
         }
-      });
+      })
     }
   }
 }
