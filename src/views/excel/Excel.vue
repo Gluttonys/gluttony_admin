@@ -353,7 +353,6 @@ export default {
     }
   },
 
-
   watch: {
     currentEditorData({province, city, address}) {
       /*

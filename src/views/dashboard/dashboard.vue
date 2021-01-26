@@ -1,26 +1,25 @@
 <template>
-  <div class="dashboard">
+  <div class="dashboard" v-permissions>
     <el-row class="bg_white">
       <el-col :span="18">
-        <div ref="sales" class="charts"></div>
+        <div v-echarts="option" class="charts"></div>
         <p class="light">
           共产主义者同盟这个在当时条件下自然只能是秘密团体的国际工人组织，1847年11月在伦敦举行的代的详细的理论和实践的党纲
         </p>
       </el-col>
       <el-col :span="6">
-
       </el-col>
     </el-row>
 
     <div class="charts_area">
       <div class="block bg_white">
-        <div ref="rose" class="charts"></div>
+        <div v-echarts="roseOption" class="charts"></div>
       </div>
       <div class="block bg_white">
-        <div ref="gallery" class="charts"></div>
+        <div v-echarts="galleryOption" class="charts"></div>
       </div>
       <div class="block bg_white">
-        <div ref="dotted" class="charts"></div>
+        <div v-echarts="dottedOption" class="charts"></div>
       </div>
     </div>
 
@@ -85,7 +84,6 @@ import {galleryOption} from '@/config/echarts/galleryCharts'
 import {dottedOption} from '@/config/echarts/dottedCharts'
 import {tableData} from '../../../mockData/tableData'
 
-const echarts = require('echarts')
 
 export default {
   name: 'dashboard',
@@ -93,19 +91,14 @@ export default {
     return {
       // drip: 5,
       tableData,
-      multipleSelection: []
+      multipleSelection: [],
+      roseOption,
+      option,
+      galleryOption,
+      dottedOption
     }
   },
-  mounted() {
-    this.initCharts()  /* 初始化图表 */
-  },
   methods: {
-    initCharts() {
-      echarts.init(this.$refs.sales).setOption(option);
-      echarts.init(this.$refs.rose).setOption(roseOption)
-      echarts.init(this.$refs.gallery).setOption(galleryOption)
-      echarts.init(this.$refs.dotted).setOption(dottedOption)
-    },
     handleSelectionChange(val) {
       /* 表格选项发生变化时的回调 */
       this.multipleSelection = val;

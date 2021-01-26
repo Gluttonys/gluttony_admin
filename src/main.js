@@ -14,6 +14,10 @@ import '@/style/main.scss'  // 全局 css
 import 'animate.css'        // 动画库 https://animate.style/
 import '@/assets/fontawesome/css/font-awesome.min.css'
 
+// 加载全局指令
+import '@/directive/permissions'  // 权限指令
+import '@/directive/echarts'
+
 Vue.prototype.$lodash = require('lodash')
 
 new Vue({
